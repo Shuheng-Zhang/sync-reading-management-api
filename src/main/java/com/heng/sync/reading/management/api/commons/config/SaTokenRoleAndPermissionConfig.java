@@ -29,7 +29,7 @@ public class SaTokenRoleAndPermissionConfig implements StpInterface {
 
         List<String> list = new ArrayList<>();
         try {
-            String res = stringRedisTemplate.opsForValue().get(RedisPrefixConfig.REDIS_KEY_PREFIX + o);
+            String res = stringRedisTemplate.opsForValue().get(RedisPrefixConfig.KEY_ACCOUNT_ROLE_PREFIX + o);
             if (res != null) {
                 int accountType = Integer.parseInt(res);
                 switch (accountType) {

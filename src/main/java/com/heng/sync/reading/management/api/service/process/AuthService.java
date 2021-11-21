@@ -52,7 +52,7 @@ public class AuthService {
             throw new BusinessException(RespEnum.USERNAME_OR_CERT_INVALID);
         }
 
-        stringRedisTemplate.opsForValue().set(RedisPrefixConfig.REDIS_KEY_PREFIX + target.getId(), String.valueOf(target.getAccountType()));
+        stringRedisTemplate.opsForValue().set(RedisPrefixConfig.KEY_ACCOUNT_ROLE_PREFIX + target.getId(), String.valueOf(target.getAccountType()));
 
 
         StpUtil.login(target.getId());
@@ -69,7 +69,7 @@ public class AuthService {
             throw new BusinessException(RespEnum.PARAMS_INVALID);
         }
 
-        stringRedisTemplate.delete(RedisPrefixConfig.REDIS_KEY_PREFIX + accountId);
+        stringRedisTemplate.delete(RedisPrefixConfig.KEY_ACCOUNT_ROLE_PREFIX + accountId);
 
         StpUtil.logout(accountId);
     }

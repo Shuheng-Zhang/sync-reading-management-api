@@ -6,7 +6,7 @@ package com.heng.sync.reading.management.api.commons.config;
 public class RedisPrefixConfig {
 
     /**
-     * Redis 账号缓存信息前缀
+     * Redis 用户用账号角色缓存信息前缀
      */
-    final public static String REDIS_KEY_PREFIX = "account:role:";
+    final public static String KEY_ACCOUNT_ROLE_PREFIX = "account:role:";
 }
