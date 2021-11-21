@@ -51,6 +51,60 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/cn.dev33/sa-token-spring-boot-starter -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>1.27.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-dao-redis-jackson</artifactId>
+            <version>1.27.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.3.4</version>
+        </dependency>
+
+
+        <!--XSS安全过滤-->
+        <dependency>
+            <groupId>net.dreamlu</groupId>
+            <artifactId>mica-core</artifactId>
+            <version>2.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>net.dreamlu</groupId>
+            <artifactId>mica-xss</artifactId>
+            <version>2.5.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.15</version>
+        </dependency>
+
+        <!-- epublib Library -->
+        <dependency>
+            <groupId>nl.siegmann.epublib</groupId>
+            <artifactId>epublib-core</artifactId>
+            <version>4.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

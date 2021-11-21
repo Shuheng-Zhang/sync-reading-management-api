@@ -1,0 +1,41 @@
+#################################################################
+##### 应用全局配置                                          ######
+#################################################################
+server:
+  servlet:
+    # 使用 UTF-8 字符集编码
+    encoding:
+      force: true
+      enabled: true
+      charset: UTF-8
+
+spring:
+  servlet:
+    # 启用文件上传
+    multipart:
+      enabled: true
+      max-file-size: 30MB
+      max-request-size: 4GB
+  # 配置 JSON 时间序列化
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  # 配置应用启动配置
+  profiles:
+    active: dev
+  application:
+    name: Sync-Reading-Management-Api
+
+# 配置 Mybatis
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    auto-mapping-behavior: full
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mapper/*Mapper.xml
+
+

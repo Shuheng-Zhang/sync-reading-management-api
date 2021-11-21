@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.sync.reading.management.api.mapper.AppGlobalConfigInfoMapper">
+  <resultMap id="BaseResultMap" type="com.heng.sync.reading.management.api.entity.AppGlobalConfigInfo">
+    <!--@mbg.generated-->
+    <!--@Table app_global_config_info-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="app_theme" jdbcType="INTEGER" property="appTheme" />
+    <result column="app_info_sync_mode" jdbcType="INTEGER" property="appInfoSyncMode" />
+    <result column="reader_theme" jdbcType="INTEGER" property="readerTheme" />
+    <result column="reader_font_size" jdbcType="INTEGER" property="readerFontSize" />
+    <result column="reader_font_family" jdbcType="VARCHAR" property="readerFontFamily" />
+    <result column="reader_text_space" jdbcType="INTEGER" property="readerTextSpace" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, account_id, app_theme, app_info_sync_mode, reader_theme, reader_font_size, reader_font_family, 
+    reader_text_space, is_deleted
+  </sql>
+</mapper>

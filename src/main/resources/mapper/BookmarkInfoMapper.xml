@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.sync.reading.management.api.mapper.BookmarkInfoMapper">
+  <resultMap id="BaseResultMap" type="com.heng.sync.reading.management.api.entity.BookmarkInfo">
+    <!--@mbg.generated-->
+    <!--@Table bookmark_info-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="book_id" jdbcType="VARCHAR" property="bookId" />
+    <result column="marked_chapter_name" jdbcType="VARCHAR" property="markedChapterName" />
+    <result column="marked_location" jdbcType="LONGVARCHAR" property="markedLocation" />
+    <result column="marked_time" jdbcType="TIMESTAMP" property="markedTime" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, book_id, marked_chapter_name, marked_location, marked_time, is_deleted
+  </sql>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.sync.reading.management.api.mapper.BookResourceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.heng.sync.reading.management.api.entity.BookResourceInfo">
+    <!--@mbg.generated-->
+    <!--@Table book_resource_info-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="book_origin_file_name" jdbcType="VARCHAR" property="bookOriginFileName" />
+    <result column="book_resource_url" jdbcType="LONGVARCHAR" property="bookResourceUrl" />
+    <result column="book_cover_url" jdbcType="LONGVARCHAR" property="bookCoverUrl" />
+    <result column="book_resource_size" jdbcType="INTEGER" property="bookResourceSize" />
+    <result column="book_pushed_time" jdbcType="TIMESTAMP" property="bookPushedTime" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, account_id, book_origin_file_name, book_resource_url, book_cover_url, book_resource_size, 
+    book_pushed_time, is_deleted
+  </sql>
+</mapper>

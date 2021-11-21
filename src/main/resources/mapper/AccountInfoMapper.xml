@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.sync.reading.management.api.mapper.AccountInfoMapper">
+  <resultMap id="BaseResultMap" type="com.heng.sync.reading.management.api.entity.AccountInfo">
+    <!--@mbg.generated-->
+    <!--@Table account_info-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="account_cert" jdbcType="LONGVARCHAR" property="accountCert" />
+    <result column="account_security_key" jdbcType="VARCHAR" property="accountSecurityKey" />
+    <result column="account_type" jdbcType="INTEGER" property="accountType" />
+    <result column="is_locked" jdbcType="INTEGER" property="locked" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, account_name, account_cert, account_security_key, account_type, is_locked
+  </sql>
+
+  <select id="queryExistedByAccountName" resultType="java.lang.Integer">
+    select 1 from account_info where account_name = #{accountName}
+  </select>
+
+  <select id="queryByAccountName" resultMap="BaseResultMap">
+    select id, account_name, account_cert, account_security_key, account_type, is_locked
+    from account_info
+    where account_name = #{accountName}
+    limit 1
+  </select>
+</mapper>
