@@ -43,7 +43,7 @@ sa-token:
 appConfig:
   # 配置外部数据存储
   dataStorage:
-    dataDirRoot: D:/Development/reading-system-api/ProjectData
-    uploadTmpPrefix: /tmps
+    dataDirRoot: /Users/heng/workspace/sync-reading-management-api/ProjectData
+    uploadedTmpPrefix: /tmps
     bookCoverPrefix: /covers
     bookResPrefix: /books
