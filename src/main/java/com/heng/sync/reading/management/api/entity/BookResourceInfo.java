@@ -10,8 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
-    * 书目资源信息
-    */
+ * 书目资源信息
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,12 +40,6 @@ public class BookResourceInfo {
      */
     @TableField(value = "book_resource_url")
     private String bookResourceUrl;
-
-    /**
-     * 书目封面路径
-     */
-    @TableField(value = "book_cover_url")
-    private String bookCoverUrl;
 
     /**
      * 书目资源容量

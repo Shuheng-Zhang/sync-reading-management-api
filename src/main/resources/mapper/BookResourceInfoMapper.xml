@@ -8,14 +8,13 @@
     <result column="account_id" jdbcType="VARCHAR" property="accountId" />
     <result column="book_origin_file_name" jdbcType="VARCHAR" property="bookOriginFileName" />
     <result column="book_resource_url" jdbcType="LONGVARCHAR" property="bookResourceUrl" />
-    <result column="book_cover_url" jdbcType="LONGVARCHAR" property="bookCoverUrl" />
     <result column="book_resource_size" jdbcType="INTEGER" property="bookResourceSize" />
     <result column="book_pushed_time" jdbcType="TIMESTAMP" property="bookPushedTime" />
     <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, account_id, book_origin_file_name, book_resource_url, book_cover_url, book_resource_size, 
-    book_pushed_time, is_deleted
+    id, account_id, book_origin_file_name, book_resource_url, book_resource_size, book_pushed_time, 
+    is_deleted
   </sql>
 </mapper>

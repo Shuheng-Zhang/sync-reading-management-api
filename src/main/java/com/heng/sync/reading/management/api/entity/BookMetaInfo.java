@@ -9,8 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
-    * 书目元数据
-    */
+ * 书目元数据
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,6 +47,24 @@ public class BookMetaInfo {
     private String bookDescription;
 
     /**
+     * 书目目录章节统计
+     */
+    @TableField(value = "book_contents_count")
+    private Integer bookContentsCount;
+
+    /**
+     * 书目封面URL
+     */
+    @TableField(value = "book_cover_url")
+    private String bookCoverUrl;
+
+    /**
+     * 书目OPF文件URL
+     */
+    @TableField(value = "book_opf_url")
+    private String bookOpfUrl;
+
+    /**
      * 删除标识, 0-正常; 1-已删除
      */
     @TableField(value = "is_deleted")
@@ -61,6 +79,12 @@ public class BookMetaInfo {
     public static final String COL_BOOK_AUTHORS = "book_authors";
 
     public static final String COL_BOOK_DESCRIPTION = "book_description";
+
+    public static final String COL_BOOK_CONTENTS_COUNT = "book_contents_count";
+
+    public static final String COL_BOOK_COVER_URL = "book_cover_url";
+
+    public static final String COL_BOOK_OPF_URL = "book_opf_url";
 
     public static final String COL_IS_DELETED = "is_deleted";
 }

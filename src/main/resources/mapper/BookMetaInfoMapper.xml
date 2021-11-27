@@ -9,10 +9,14 @@
     <result column="book_title" jdbcType="VARCHAR" property="bookTitle" />
     <result column="book_authors" jdbcType="VARCHAR" property="bookAuthors" />
     <result column="book_description" jdbcType="LONGVARCHAR" property="bookDescription" />
+    <result column="book_contents_count" jdbcType="INTEGER" property="bookContentsCount" />
+    <result column="book_cover_url" jdbcType="LONGVARCHAR" property="bookCoverUrl" />
+    <result column="book_opf_url" jdbcType="LONGVARCHAR" property="bookOpfUrl" />
     <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, book_id, book_title, book_authors, book_description, is_deleted
+    id, book_id, book_title, book_authors, book_description, book_contents_count, book_cover_url, 
+    book_opf_url, is_deleted
   </sql>
 </mapper>
