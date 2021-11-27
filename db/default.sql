@@ -1,4 +1,4 @@
--- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for osx10.17 (arm64)
 --
 -- Host: 127.0.0.1    Database: epub_reading_service
 -- ------------------------------------------------------
@@ -86,6 +86,9 @@ CREATE TABLE `book_meta_info` (
   `book_title` varchar(32) DEFAULT NULL COMMENT '书目标题',
   `book_authors` varchar(256) DEFAULT NULL COMMENT '书目作者列表, 使用逗号分隔',
   `book_description` text DEFAULT NULL COMMENT '书目简介',
+  `book_contents_count` int(11) DEFAULT NULL COMMENT '书目目录章节统计',
+  `book_cover_url` text DEFAULT NULL COMMENT '书目封面URL',
+  `book_opf_url` text DEFAULT NULL COMMENT '书目OPF文件URL',
   `is_deleted` int(11) DEFAULT 0 COMMENT '删除标识, 0-正常; 1-已删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='书目元数据';
@@ -112,7 +115,6 @@ CREATE TABLE `book_resource_info` (
   `account_id` varchar(64) NOT NULL COMMENT '用户(拥有者)ID, account_id -> account_info.id',
   `book_origin_file_name` varchar(128) DEFAULT NULL COMMENT '书目源文件名',
   `book_resource_url` text DEFAULT NULL COMMENT '书目资源目录路径',
-  `book_cover_url` text DEFAULT NULL COMMENT '书目封面路径',
   `book_resource_size` int(11) DEFAULT NULL COMMENT '书目资源容量',
   `book_pushed_time` datetime DEFAULT NULL COMMENT '书目导入时间',
   `is_deleted` int(11) DEFAULT 0 COMMENT '删除标识, 0-正常; 1-已删除',
@@ -193,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-21 22:55:07
+-- Dump completed on 2021-11-27 23:55:29
