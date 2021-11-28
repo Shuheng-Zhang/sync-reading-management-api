@@ -43,7 +43,18 @@ sa-token:
 appConfig:
   # 配置外部数据存储
   dataStorage:
-    dataDirRoot: /Users/heng/workspace/sync-reading-management-api/ProjectData
+    dataDirRoot: /Users/zhangshuheng/workspace/DevProjectData/sync-reading-management-api
     uploadedTmpPrefix: /tmps
-    bookCoverPrefix: /covers
-    bookResPrefix: /books
+    epubPrefix: /epub
+  # 配置异步服务执行器
+  asyncServiceExecutor:
+    # 核心线程数
+    corePoolSize: 4
+    # 配置最大线程数
+    maxPoolSize: 16
+    # 任务队列容量
+    queueCapacity: 512
+    # 配置线程最大空闲时间(秒)
+    keepAliveSeconds: 60
+    # 线程池中的线程的名称前缀
+    namePrefix: asyncServiceExecutor-

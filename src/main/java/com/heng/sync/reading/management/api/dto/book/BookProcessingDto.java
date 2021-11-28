@@ -11,9 +11,9 @@ import lombok.Data;
 public class BookProcessingDto {
 
     /**
-     * 书目ID
+     * 用户账号ID
      */
-    private String bookId;
+    private String accountId;
 
     /**
      * 源书目文件名称
