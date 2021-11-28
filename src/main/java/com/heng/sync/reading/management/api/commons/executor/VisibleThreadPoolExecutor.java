@@ -6,6 +6,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 可视化线程执行器
@@ -25,13 +26,17 @@ public class VisibleThreadPoolExecutor extends ThreadPoolTaskExecutor {
         ExecutorInfoDto executorInfoDto = new ExecutorInfoDto(this.getDefaultThreadNamePrefix(),
                 executor.getTaskCount(), executor.getActiveCount(), executor.getCompletedTaskCount(),
                 executor.getQueue().size());
-        LOGGER.info("====== VisibleThreadPoolExecutor Info ======");
+        LOGGER.info("======== VisibleThreadPoolExecutor Info ========");
         LOGGER.info("==> Name:          {}", executorInfoDto.getExecutorName());
         LOGGER.info("==> TotalTasks:    {}", executorInfoDto.getTotalTaskCount());
         LOGGER.info("==> Processing:    {}", executorInfoDto.getProcessingTaskCount());
         LOGGER.info("==> Completed:     {}", executorInfoDto.getCompletedTaskCount());
         LOGGER.info("==> Queued:        {}", executorInfoDto.getQueuedTaskCount());
-        LOGGER.info("====== VisibleThreadPoolExecutor Info ======");
+        LOGGER.info("==> CorePoolSize:  {}", executor.getCorePoolSize());
+        LOGGER.info("==> MaxPoolSize:   {}", executor.getMaximumPoolSize());
+        LOGGER.info("==> QueueCapacity: {}", executor.getQueue().remainingCapacity());
+        LOGGER.info("==> KeepAlive:     {}", executor.getKeepAliveTime(TimeUnit.SECONDS));
+        LOGGER.info("======== VisibleThreadPoolExecutor Info ========");
 
         return executorInfoDto;
     }

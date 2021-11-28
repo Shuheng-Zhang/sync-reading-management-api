@@ -6,9 +6,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import javax.annotation.Resource;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
+/**
+ * 异步执行器配置
+ */
 @Configuration
 @EnableAsync
 public class ExecutorConfig {
@@ -24,10 +28,11 @@ public class ExecutorConfig {
     @Value("${appConfig.asyncServiceExecutor.namePrefix}")
     private String namePrefix;
 
+    @Resource
+    private VisibleThreadPoolExecutor executor;
+
     @Bean("asyncServiceExecutor")
     public Executor asyncServiceExecutor() {
-        VisibleThreadPoolExecutor executor = new VisibleThreadPoolExecutor();
-
         executor.setCorePoolSize(corePoolSize);
         executor.setMaxPoolSize(maxPoolSize);
         executor.setQueueCapacity(queueCapacity);
