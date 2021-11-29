@@ -1,6 +1,7 @@
 package com.heng.sync.reading.management.api.controller;
 
 import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
 import com.heng.sync.reading.management.api.commons.result.DataResult;
 import com.heng.sync.reading.management.api.dto.account.AccountAuthDto;
 import com.heng.sync.reading.management.api.dto.account.AccountLoginDoneDto;
@@ -29,12 +30,12 @@ public class AuthController {
 
     /**
      * 用户登出
-     * @param accountId 目标用户账号ID
      * @return
      */
     @SaCheckLogin
-    @GetMapping(value = "logout/{accountId}")
-    public DataResult logout(@PathVariable("accountId") String accountId) {
+    @GetMapping(value = "logout")
+    public DataResult logout() {
+        String accountId = (String) StpUtil.getLoginId();
         authService.logout(accountId);
         return DataResult.success();
     }
