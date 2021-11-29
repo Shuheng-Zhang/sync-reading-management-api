@@ -3,7 +3,6 @@ package com.heng.sync.reading.management.api.controller;
 import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.stp.StpUtil;
-import cn.hutool.http.server.HttpServerRequest;
 import com.heng.sync.reading.management.api.commons.enums.FileTypeEnum;
 import com.heng.sync.reading.management.api.commons.enums.RespEnum;
 import com.heng.sync.reading.management.api.commons.result.DataResult;
@@ -11,14 +10,12 @@ import com.heng.sync.reading.management.api.dto.book.BookProcessingDto;
 import com.heng.sync.reading.management.api.service.process.EpubBookProcessingService;
 import com.heng.sync.reading.management.api.service.process.FileProcessingService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
 
