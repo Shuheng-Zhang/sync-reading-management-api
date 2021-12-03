@@ -21,7 +21,8 @@
   </select>
 
   <select id="queryByAccountName" resultMap="BaseResultMap">
-    select id, account_name, account_cert, account_security_key, account_type, is_locked
+    select
+    <include refid="Base_Column_List" />
     from account_info
     where account_name = #{accountName}
     limit 1

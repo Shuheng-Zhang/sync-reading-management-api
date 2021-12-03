@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+@SaCheckLogin
+@SaCheckRole(value = "app-admin")
 @RestController
 @RequestMapping(value = "/account")
 public class AccountController {
@@ -21,7 +23,6 @@ public class AccountController {
     private AccountInfoService accountInfoService;
 
     @SaCheckLogin
-    @SaCheckRole("app-admin")
     @PostMapping(value = "creation")
     public DataResult createAccount(@RequestBody AccountCreationDto accountCreationDto) {
         this.accountInfoService.createAccount(accountCreationDto);
@@ -29,7 +30,6 @@ public class AccountController {
     }
 
     @SaCheckLogin
-    @SaCheckRole("app-admin")
     @PostMapping(value = "update")
     public DataResult updateAccount(@RequestBody AccountUpdateDto accountUpdateDto) {
         this.accountInfoService.updateAccountInfo(accountUpdateDto);

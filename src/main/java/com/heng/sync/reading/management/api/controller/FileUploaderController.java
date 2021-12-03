@@ -6,7 +6,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.heng.sync.reading.management.api.commons.enums.FileTypeEnum;
 import com.heng.sync.reading.management.api.commons.enums.RespEnum;
 import com.heng.sync.reading.management.api.commons.result.DataResult;
-import com.heng.sync.reading.management.api.dto.book.BookProcessingDto;
+import com.heng.sync.reading.management.api.dto.book.EpubBookProcessingDto;
 import com.heng.sync.reading.management.api.service.process.EpubBookProcessingService;
 import com.heng.sync.reading.management.api.service.process.FileProcessingService;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +19,8 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
+@SaCheckLogin
+@SaCheckRole(value = "app-reader")
 @RestController
 @RequestMapping(value = "/upload")
 public class FileUploaderController {
@@ -40,8 +42,6 @@ public class FileUploaderController {
      * @param files 目标文件列表
      * @return
      */
-    @SaCheckLogin
-    @SaCheckRole(value = "app-reader")
     @PostMapping(value = "epub")
     public DataResult epubUploadFiles(MultipartFile[] files) {
 
