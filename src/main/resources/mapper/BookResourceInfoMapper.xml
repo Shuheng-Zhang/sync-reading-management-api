@@ -17,4 +17,15 @@
     id, account_id, book_origin_file_name, book_resource_url, book_resource_size, book_pushed_time, 
     is_deleted
   </sql>
+
+  <delete id="deleteByBookId" parameterType="string">
+    delete from book_resource_info where id = #{bookId}
+    </delete>
+
+  <select id="queryByBookId" parameterType="string" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List" />
+    from book_resource_info
+    where id = #{bookId} limit 1
+  </select>
 </mapper>

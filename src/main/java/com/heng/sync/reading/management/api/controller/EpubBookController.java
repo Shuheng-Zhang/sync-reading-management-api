@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @SaCheckLogin
 @SaCheckRole(value = "app-reader")
@@ -34,5 +35,18 @@ public class EpubBookController {
     @PostMapping(value = "listWithAnalysisInfo")
     public DataResult listBookWithAnalysisInfoByPage(@RequestBody EpubBookQueryDto queryDto) {
         return DataResult.success(epubBookService.findBooksWithAnalysisInfo(queryDto));
+    }
+
+    @PostMapping(value = "removeBooks")
+    public DataResult removeBooks(@RequestBody List<String> bookIds) {
+        epubBookService.removeBooks(bookIds);
+
+        return DataResult.success();
+    }
+
+    @PostMapping(value = "purgeBooks")
+    public DataResult purgeBooks(@RequestBody List<String> bookIds) {
+        epubBookService.purgeBooks(bookIds);
+        return DataResult.success();
     }
 }

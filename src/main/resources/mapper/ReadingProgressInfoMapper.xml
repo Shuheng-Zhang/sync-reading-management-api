@@ -17,4 +17,8 @@
     id, book_id, cur_read_location, cur_read_percentage, cur_chapter_name, latest_read_time, 
     is_deleted
   </sql>
+
+  <delete id="deleteByBookId" parameterType="string">
+    delete from reading_progress_info where book_id = #{bookId}
+  </delete>
 </mapper>

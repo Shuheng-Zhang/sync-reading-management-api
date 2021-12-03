@@ -82,7 +82,7 @@ public class EpubBookProcessingService {
                 this.bookResourceInfoMapper.insert(bookResourceInfo);
                 this.bookMetaInfoMapper.insert(bookMetaInfo);
 
-                fileProcessingService.cleanupFile(processingDto.getBookTmpStoredFilePath());
+                fileProcessingService.cleanupFileOrDir(processingDto.getBookTmpStoredFilePath());
 
             } catch (Exception e) {
                 throw new BusinessException(RespEnum.SYS_ERR, e.getCause() + ": " + e.getMessage());

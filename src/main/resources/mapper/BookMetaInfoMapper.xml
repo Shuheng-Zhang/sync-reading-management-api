@@ -19,4 +19,8 @@
     id, book_id, book_title, book_authors, book_description, book_contents_count, book_cover_url, 
     book_opf_url, is_deleted
   </sql>
+
+  <delete id="deleteByBookId" parameterType="string">
+    delete from book_meta_info where book_id = #{bookId}
+    </delete>
 </mapper>

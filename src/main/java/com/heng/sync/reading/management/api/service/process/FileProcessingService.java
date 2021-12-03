@@ -57,15 +57,15 @@ public class FileProcessingService {
     }
 
     /**
-     * 清理目标文件
-     * @param targetFilePath 目标文件路径
+     * 清理目标文件/文件夹
+     * @param targetPath 目标文件/文件夹路径
      */
-    public void cleanupFile(String targetFilePath) {
-        if (StrUtil.isEmptyIfStr(targetFilePath)) {
+    public void cleanupFileOrDir(String targetPath) {
+        if (StrUtil.isEmptyIfStr(targetPath)) {
             return;
         }
 
-        File targetFile = new File(targetFilePath);
+        File targetFile = new File(targetPath);
         FileUtil.del(targetFile);
     }
 }

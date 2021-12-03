@@ -15,4 +15,8 @@
     <!--@mbg.generated-->
     id, book_id, marked_chapter_name, marked_location, marked_time, is_deleted
   </sql>
+
+  <delete id="deleteByBookId" parameterType="string">
+    delete from bookmark_info where book_id = #{bookId}
+  </delete>
 </mapper>
