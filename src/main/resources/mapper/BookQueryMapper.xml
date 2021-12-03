@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heng.sync.reading.management.api.mapper.BookQueryMapper">
+    <resultMap id="QueryResultBaseMap" type="com.heng.sync.reading.management.api.dto.book.QueryResultBaseDto">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="book_title" jdbcType="VARCHAR" property="bookTitle" />
+        <result column="book_authors" jdbcType="VARCHAR" property="bookAuthors" />
+        <result column="book_resource_url" jdbcType="LONGVARCHAR" property="bookResourceUrl" />
+        <result column="book_cover_url" jdbcType="LONGVARCHAR" property="bookCoverUrl" />
+        <result column="book_origin_file_name" jdbcType="VARCHAR" property="bookOriginFileName" />
+    </resultMap>
+
+    <resultMap id="QueryResultDetailMap" type="com.heng.sync.reading.management.api.dto.book.QueryResultDetailDto">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="book_title" jdbcType="VARCHAR" property="bookTitle" />
+        <result column="book_authors" jdbcType="VARCHAR" property="bookAuthors" />
+        <result column="book_description" jdbcType="VARCHAR" property="bookDescription" />
+        <result column="book_contents_count" jdbcType="INTEGER" property="contentsCount" />
+        <result column="book_resource_url" jdbcType="LONGVARCHAR" property="bookResourceUrl" />
+        <result column="book_cover_url" jdbcType="LONGVARCHAR" property="bookCoverUrl" />
+        <result column="book_opf_url" jdbcType="LONGVARCHAR" property="bookOpfUrl" />
+        <result column="book_origin_file_name" jdbcType="VARCHAR" property="bookOriginFileName" />
+    </resultMap>
+
+    <resultMap id="QueryResultAnalysisMap" type="com.heng.sync.reading.management.api.dto.book.QueryResultAnalysisDto">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="book_title" jdbcType="VARCHAR" property="bookTitle" />
+        <result column="book_authors" jdbcType="VARCHAR" property="bookAuthors" />
+        <result column="book_resource_url" jdbcType="LONGVARCHAR" property="bookResourceUrl" />
+        <result column="book_cover_url" jdbcType="LONGVARCHAR" property="bookCoverUrl" />
+        <result column="book_origin_file_name" jdbcType="VARCHAR" property="bookOriginFileName" />
+        <result column="book_pushed_time" jdbcType="TIMESTAMP" property="bookPushedTime" />
+        <result column="book_resource_size" jdbcType="INTEGER" property="bookResourceSize" />
+    </resultMap>
+
+    <select id="queryBooksWithBaseInfo" resultMap="QueryResultBaseMap">
+        select bri.id, bri.book_resource_url, bri.book_origin_file_name, bmi.book_title, bmi.book_authors, bmi.book_cover_url
+        from book_resource_info bri
+                     left join book_meta_info bmi on bri.id = bmi.book_id
+        where bri.account_id = #{accountId}
+        <if test='bookTitleLike != null and bookTitleLike != ""'>
+            and bmi.book_title like concat(#{bookTitleLike}, '%')
+        </if>
+        <if test='bookAuthorsLike != null and bookAuthorsLike != ""'>
+            and bmi.book_authors like concat(#{bookAuthorsLike}, '%')
+        </if>
+        and bri.is_deleted = 0
+        order by bri.book_pushed_time desc
+    </select>
+
+    <select id="queryBooksWithDetailInfo" resultMap="QueryResultDetailMap">
+        select bri.id, bri.book_resource_url, bri.book_origin_file_name,
+        bmi.book_title, bmi.book_authors, bmi.book_description, bmi.book_contents_count, bmi.book_cover_url, bmi.book_opf_url
+        from book_resource_info bri
+        left join book_meta_info bmi on bri.id = bmi.book_id
+        where bri.account_id = #{accountId}
+        <if test="bookTitleLike != null and bookTitleLike != ''">
+            and bmi.book_title like concat(#{bookTitleLike}, '%')
+        </if>
+        <if test="bookAuthorsLike != null and bookAuthorsLike != ''">
+            and bmi.book_authors like concat(#{bookAuthorsLike}, '%')
+        </if>
+        and bri.is_deleted = 0
+        order by bri.book_pushed_time desc
+    </select>
+
+    <select id="queryBooksWithAnalysisInfo" resultMap="QueryResultAnalysisMap">
+        select bri.id, bri.book_resource_url, bri.book_origin_file_name, bri.book_pushed_time, bri.book_resource_size,
+                bmi.book_title, bmi.book_authors, bmi.book_cover_url
+        from book_resource_info bri
+        left join book_meta_info bmi on bri.id = bmi.book_id
+        where bri.account_id = #{accountId}
+        <if test="bookTitleLike != null and bookTitleLike != ''">
+            and bmi.book_title like concat(#{bookTitleLike}, '%')
+        </if>
+        <if test="bookAuthorsLike != null and bookAuthorsLike != ''">
+            and bmi.book_authors like concat(#{bookAuthorsLike}, '%')
+        </if>
+        and bri.is_deleted = 0
+        order by bri.book_pushed_time desc
+    </select>
+</mapper>

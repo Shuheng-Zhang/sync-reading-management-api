@@ -51,12 +51,12 @@ public class FileUploaderController {
 
         String accountId = (String) StpUtil.getLoginId();
 
-        List<BookProcessingDto> processingDtoList = new ArrayList<>();
+        List<EpubBookProcessingDto> processingDtoList = new ArrayList<>();
         for (MultipartFile file : files) {
             String originFileName = file.getOriginalFilename();
             String storedFileName = fileProcessingService.transferTo(file, dataRootDir + tmpPrefix, FileTypeEnum.EPUB, FileTypeEnum.EPUB_ZIP);
 
-            processingDtoList.add(new BookProcessingDto(accountId, originFileName, dataRootDir + tmpPrefix + "/" + storedFileName));
+            processingDtoList.add(new EpubBookProcessingDto(accountId, originFileName, dataRootDir + tmpPrefix + "/" + storedFileName));
         }
 
         epubBookProcessingService.analysisBookResources(processingDtoList);

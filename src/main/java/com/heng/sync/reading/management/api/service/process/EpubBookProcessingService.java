@@ -8,7 +8,7 @@ import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
 import com.heng.sync.reading.management.api.commons.enums.RespEnum;
 import com.heng.sync.reading.management.api.commons.exception.BusinessException;
-import com.heng.sync.reading.management.api.dto.book.BookProcessingDto;
+import com.heng.sync.reading.management.api.dto.book.EpubBookProcessingDto;
 import com.heng.sync.reading.management.api.entity.BookMetaInfo;
 import com.heng.sync.reading.management.api.entity.BookResourceInfo;
 import com.heng.sync.reading.management.api.mapper.BookMetaInfoMapper;
@@ -53,12 +53,12 @@ public class EpubBookProcessingService {
      * @param bookList 书目处理列表
      */
     @Async(value = "asyncServiceExecutor")
-    public void analysisBookResources(List<BookProcessingDto> bookList) {
+    public void analysisBookResources(List<EpubBookProcessingDto> bookList) {
         if (bookList == null || bookList.isEmpty()) {
             throw new BusinessException(RespEnum.PARAMS_INVALID);
         }
 
-        for (BookProcessingDto processingDto : bookList) {
+        for (EpubBookProcessingDto processingDto : bookList) {
             LOGGER.info("analysisBookResources ==> Analysing: {}", processingDto);
             try {
                 // 解压缩

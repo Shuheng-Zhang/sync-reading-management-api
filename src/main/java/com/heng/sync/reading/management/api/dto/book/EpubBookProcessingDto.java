@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * 数据对象 - 书目处理信息对象
+ * 数据对象 - ePub 书目处理信息对象
  */
 @Data
 @AllArgsConstructor
-public class BookProcessingDto {
+public class EpubBookProcessingDto {
 
     /**
      * 用户账号ID
