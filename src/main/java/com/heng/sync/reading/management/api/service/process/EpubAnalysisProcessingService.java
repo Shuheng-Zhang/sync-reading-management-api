@@ -28,7 +28,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class EpubBookProcessingService {
+public class EpubAnalysisProcessingService {
 
     final private static Log LOGGER = LogFactory.get();
 

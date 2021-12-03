@@ -7,7 +7,7 @@ import com.heng.sync.reading.management.api.commons.enums.FileTypeEnum;
 import com.heng.sync.reading.management.api.commons.enums.RespEnum;
 import com.heng.sync.reading.management.api.commons.result.DataResult;
 import com.heng.sync.reading.management.api.dto.book.EpubBookProcessingDto;
-import com.heng.sync.reading.management.api.service.process.EpubBookProcessingService;
+import com.heng.sync.reading.management.api.service.process.EpubAnalysisProcessingService;
 import com.heng.sync.reading.management.api.service.process.FileProcessingService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +35,7 @@ public class FileUploaderController {
     private FileProcessingService fileProcessingService;
 
     @Resource
-    private EpubBookProcessingService epubBookProcessingService;
+    private EpubAnalysisProcessingService epubAnalysisProcessingService;
 
     /**
      * 上传 ePub 类型文件
@@ -59,7 +59,7 @@ public class FileUploaderController {
             processingDtoList.add(new EpubBookProcessingDto(accountId, originFileName, dataRootDir + tmpPrefix + "/" + storedFileName));
         }
 
-        epubBookProcessingService.analysisBookResources(processingDtoList);
+        epubAnalysisProcessingService.analysisBookResources(processingDtoList);
 
         return DataResult.success("BOOKS_ANALYSING");
     }
