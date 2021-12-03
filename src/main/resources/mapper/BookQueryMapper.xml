@@ -33,50 +33,50 @@
         <result column="book_resource_size" jdbcType="INTEGER" property="bookResourceSize" />
     </resultMap>
 
-    <select id="queryBooksWithBaseInfo" resultMap="QueryResultBaseMap">
+    <select id="queryBooksWithBaseInfo" parameterType="com.heng.sync.reading.management.api.dto.book.EpubBookQueryDto" resultMap="QueryResultBaseMap">
         select bri.id, bri.book_resource_url, bri.book_origin_file_name, bmi.book_title, bmi.book_authors, bmi.book_cover_url
         from book_resource_info bri
                      left join book_meta_info bmi on bri.id = bmi.book_id
-        where bri.account_id = #{accountId}
-        <if test='bookTitleLike != null and bookTitleLike != ""'>
-            and bmi.book_title like concat(#{bookTitleLike}, '%')
+        where bri.account_id = #{queryDto.accountId}
+        <if test='queryDto.bookTitle != null and queryDto.bookTitle != ""'>
+            and bmi.book_title like concat(#{queryDto.bookTitle}, '%')
         </if>
-        <if test='bookAuthorsLike != null and bookAuthorsLike != ""'>
-            and bmi.book_authors like concat(#{bookAuthorsLike}, '%')
+        <if test='queryDto.authors != null and queryDto.authors != ""'>
+            and bmi.book_authors like concat(#{queryDto.authors}, '%')
         </if>
-        and bri.is_deleted = 0
+        and bri.is_deleted = #{queryDto.isDeleted}
         order by bri.book_pushed_time desc
     </select>
 
-    <select id="queryBooksWithDetailInfo" resultMap="QueryResultDetailMap">
+    <select id="queryBooksWithDetailInfo" parameterType="com.heng.sync.reading.management.api.dto.book.EpubBookQueryDto" resultMap="QueryResultDetailMap">
         select bri.id, bri.book_resource_url, bri.book_origin_file_name,
         bmi.book_title, bmi.book_authors, bmi.book_description, bmi.book_contents_count, bmi.book_cover_url, bmi.book_opf_url
         from book_resource_info bri
         left join book_meta_info bmi on bri.id = bmi.book_id
-        where bri.account_id = #{accountId}
-        <if test="bookTitleLike != null and bookTitleLike != ''">
-            and bmi.book_title like concat(#{bookTitleLike}, '%')
+        where bri.account_id = #{queryDto.accountId}
+        <if test="queryDto.bookTitle != null and queryDto.bookTitle != ''">
+            and bmi.book_title like concat(#{queryDto.bookTitle}, '%')
         </if>
-        <if test="bookAuthorsLike != null and bookAuthorsLike != ''">
-            and bmi.book_authors like concat(#{bookAuthorsLike}, '%')
+        <if test="queryDto.authors != null and queryDto.authors != ''">
+            and bmi.book_authors like concat(#{queryDto.authors}, '%')
         </if>
-        and bri.is_deleted = 0
+        and bri.is_deleted = #{queryDto.isDeleted}
         order by bri.book_pushed_time desc
     </select>
 
-    <select id="queryBooksWithAnalysisInfo" resultMap="QueryResultAnalysisMap">
+    <select id="queryBooksWithAnalysisInfo" parameterType="com.heng.sync.reading.management.api.dto.book.EpubBookQueryDto" resultMap="QueryResultAnalysisMap">
         select bri.id, bri.book_resource_url, bri.book_origin_file_name, bri.book_pushed_time, bri.book_resource_size,
                 bmi.book_title, bmi.book_authors, bmi.book_cover_url
         from book_resource_info bri
         left join book_meta_info bmi on bri.id = bmi.book_id
-        where bri.account_id = #{accountId}
-        <if test="bookTitleLike != null and bookTitleLike != ''">
-            and bmi.book_title like concat(#{bookTitleLike}, '%')
+        where bri.account_id = #{queryDto.accountId}
+        <if test="queryDto.bookTitle != null and queryDto.bookTitle != ''">
+            and bmi.book_title like concat(#{queryDto.bookTitle}, '%')
         </if>
-        <if test="bookAuthorsLike != null and bookAuthorsLike != ''">
-            and bmi.book_authors like concat(#{bookAuthorsLike}, '%')
+        <if test="queryDto.authors != null and queryDto.authors != ''">
+            and bmi.book_authors like concat(#{queryDto.authors}, '%')
         </if>
-        and bri.is_deleted = 0
+        and bri.is_deleted = #{queryDto.isDeleted}
         order by bri.book_pushed_time desc
     </select>
 </mapper>

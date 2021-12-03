@@ -58,8 +58,7 @@ public class EpubBookService {
             throw new BusinessException(RespEnum.PARAMS_INVALID);
         }
 
-        return bookQueryMapper.queryBooksWithBaseInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), accountId, queryDto.getBookTitle(), queryDto.getAuthors()
-        );
+        return bookQueryMapper.queryBooksWithBaseInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), queryDto);
     }
 
     /**
@@ -73,7 +72,7 @@ public class EpubBookService {
             throw new BusinessException(RespEnum.PARAMS_INVALID);
         }
 
-        return bookQueryMapper.queryBooksWithDetailInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), accountId, queryDto.getBookTitle(), queryDto.getAuthors());
+        return bookQueryMapper.queryBooksWithDetailInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), queryDto);
     }
 
     /**
@@ -87,7 +86,7 @@ public class EpubBookService {
             throw new BusinessException(RespEnum.PARAMS_INVALID);
         }
 
-        return bookQueryMapper.queryBooksWithAnalysisInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), accountId, queryDto.getBookTitle(), queryDto.getAuthors());
+        return bookQueryMapper.queryBooksWithAnalysisInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), queryDto);
     }
 
     /**

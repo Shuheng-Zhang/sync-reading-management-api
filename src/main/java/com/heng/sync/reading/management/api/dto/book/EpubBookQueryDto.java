@@ -1,9 +1,7 @@
 package com.heng.sync.reading.management.api.dto.book;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.heng.sync.reading.management.api.commons.request.PageQuery;
 import lombok.*;
-import org.apache.ibatis.type.JdbcType;
 
 /**
  * ePub 电子书查询数据对象
@@ -11,7 +9,6 @@ import org.apache.ibatis.type.JdbcType;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class EpubBookQueryDto extends PageQuery {
 
@@ -34,4 +31,8 @@ public class EpubBookQueryDto extends PageQuery {
      * 删除标识, 0-正常; 1-已删除
      */
     private Integer isDeleted;
+
+    public EpubBookQueryDto() {
+        this.isDeleted = 0;
+    }
 }
