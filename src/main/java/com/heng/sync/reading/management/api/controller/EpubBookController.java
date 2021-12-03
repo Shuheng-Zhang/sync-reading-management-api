@@ -26,12 +26,12 @@ public class EpubBookController {
         return DataResult.success(epubBookService.findBooksWithBaseInfo(queryDto));
     }
 
-    @PostMapping(value = "listBookWithDetailInfoByPage")
+    @PostMapping(value = "listWithDetailInfo")
     public DataResult listBookWithDetailInfoByPage(@RequestBody EpubBookQueryDto queryDto) {
         return DataResult.success(epubBookService.findBooksWithDetailInfo(queryDto));
     }
 
-    @PostMapping(value = "listBookWithAnalysisInfoByPage")
+    @PostMapping(value = "listWithAnalysisInfo")
     public DataResult listBookWithAnalysisInfoByPage(@RequestBody EpubBookQueryDto queryDto) {
         return DataResult.success(epubBookService.findBooksWithAnalysisInfo(queryDto));
     }

@@ -20,6 +20,11 @@ public class EpubBookService {
     @Resource
     private BookQueryMapper bookQueryMapper;
 
+    /**
+     * 查询书目基本信息
+     * @param queryDto 查询对象
+     * @return
+     */
     public IPage<QueryResultBaseDto> findBooksWithBaseInfo(EpubBookQueryDto queryDto) {
 
         String accountId = queryDto.getAccountId();
@@ -31,11 +36,31 @@ public class EpubBookService {
         );
     }
 
+    /**
+     * 查询书目详细信息
+     * @param queryDto 查询对象
+     * @return
+     */
     public IPage<QueryResultDetailDto> findBooksWithDetailInfo(EpubBookQueryDto queryDto) {
-        return null;
+        String accountId = queryDto.getAccountId();
+        if (StrUtil.isBlankIfStr(accountId)) {
+            throw new BusinessException(RespEnum.PARAMS_INVALID);
+        }
+
+        return bookQueryMapper.queryBooksWithDetailInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), accountId, queryDto.getBookTitle(), queryDto.getAuthors());
     }
 
+    /**
+     * 查询书目统计信息
+     * @param queryDto 查询对象
+     * @return
+     */
     public IPage<QueryResultAnalysisDto> findBooksWithAnalysisInfo(EpubBookQueryDto queryDto) {
-        return null;
+        String accountId = queryDto.getAccountId();
+        if (StrUtil.isBlankIfStr(accountId)) {
+            throw new BusinessException(RespEnum.PARAMS_INVALID);
+        }
+
+        return bookQueryMapper.queryBooksWithAnalysisInfo(new Page<>(queryDto.getCurPage(), queryDto.getSizePerPage()), accountId, queryDto.getBookTitle(), queryDto.getAuthors());
     }
 }
