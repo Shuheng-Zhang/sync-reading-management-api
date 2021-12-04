@@ -168,7 +168,7 @@ public class EpubAnalysisProcessingService {
         String bookAuthors = this.processBookAuthorsInfo(metadata.getAuthors());
         String bookDescription = this.processBookDescriptionInfo(metadata.getDescriptions());
 
-        return new BookMetaInfo(null, bookId, bookTitle, bookAuthors, bookDescription, contentsSize, bookCoverUrl, bookOpfUrl, 0);
+        return new BookMetaInfo(null, bookId, bookTitle, bookAuthors, bookDescription, contentsSize, bookCoverUrl, bookOpfUrl);
     }
 
     /**
