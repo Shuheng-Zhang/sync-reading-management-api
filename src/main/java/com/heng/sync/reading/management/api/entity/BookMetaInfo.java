@@ -64,12 +64,6 @@ public class BookMetaInfo {
     @TableField(value = "book_opf_url")
     private String bookOpfUrl;
 
-    /**
-     * 删除标识, 0-正常; 1-已删除
-     */
-    @TableField(value = "is_deleted")
-    private Integer isDeleted;
-
     public static final String COL_ID = "id";
 
     public static final String COL_BOOK_ID = "book_id";
@@ -85,6 +79,4 @@ public class BookMetaInfo {
     public static final String COL_BOOK_COVER_URL = "book_cover_url";
 
     public static final String COL_BOOK_OPF_URL = "book_opf_url";
-
-    public static final String COL_IS_DELETED = "is_deleted";
 }
