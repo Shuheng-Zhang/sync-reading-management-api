@@ -37,14 +37,14 @@ public class EpubBookController {
         return DataResult.success(epubBookService.findBooksWithAnalysisInfo(queryDto));
     }
 
-    @PostMapping(value = "removeBooks")
+    @PostMapping(value = "remove")
     public DataResult removeBooks(@RequestBody List<String> bookIds) {
         epubBookService.removeBooks(bookIds);
 
         return DataResult.success();
     }
 
-    @PostMapping(value = "purgeBooks")
+    @PostMapping(value = "purge")
     public DataResult purgeBooks(@RequestBody List<String> bookIds) {
         epubBookService.purgeBooks(bookIds);
         return DataResult.success();
