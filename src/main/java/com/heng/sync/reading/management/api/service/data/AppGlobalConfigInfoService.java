@@ -1,4 +1,4 @@
-package com.heng.sync.reading.management.api.service;
+package com.heng.sync.reading.management.api.service.data;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

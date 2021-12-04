@@ -6,7 +6,7 @@ import com.heng.sync.reading.management.api.commons.result.DataResult;
 import com.heng.sync.reading.management.api.dto.config.AppGlobalConfigOptDto;
 import com.heng.sync.reading.management.api.dto.config.AppGlobalConfigQueryDto;
 import com.heng.sync.reading.management.api.entity.AppGlobalConfigInfo;
-import com.heng.sync.reading.management.api.service.AppGlobalConfigInfoService;
+import com.heng.sync.reading.management.api.service.data.AppGlobalConfigInfoService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
