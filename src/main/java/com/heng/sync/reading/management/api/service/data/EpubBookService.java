@@ -13,6 +13,7 @@ import com.heng.sync.reading.management.api.entity.BookResourceInfo;
 import com.heng.sync.reading.management.api.mapper.*;
 import com.heng.sync.reading.management.api.service.process.FileProcessingService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -103,8 +104,10 @@ public class EpubBookService {
 
     /**
      * 彻底删除书目资源及所有相关记录
+     * 异步执行
      * @param bookIds 目标书目ID列表
      */
+    @Async(value = "asyncServiceExecutor")
     @Transactional
     public void purgeBooks(List<String> bookIds) {
         if (bookIds == null || bookIds.isEmpty()) {
