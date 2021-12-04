@@ -13,6 +13,12 @@ public enum RespEnum {
      * 参数错误
      */
     PARAMS_INVALID(400, "PARAMS_INVALID"),
+
+    /**
+     * 资源不存在
+     */
+    RESOURCE_NOT_FOUND(400, "RESOURCE_NOT_FOUND"),
+
     /**
      * 文件类型不被支持
      */

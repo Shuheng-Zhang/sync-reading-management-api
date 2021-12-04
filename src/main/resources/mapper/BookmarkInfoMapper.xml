@@ -9,14 +9,20 @@
     <result column="marked_chapter_name" jdbcType="VARCHAR" property="markedChapterName" />
     <result column="marked_location" jdbcType="LONGVARCHAR" property="markedLocation" />
     <result column="marked_time" jdbcType="TIMESTAMP" property="markedTime" />
-    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, book_id, marked_chapter_name, marked_location, marked_time, is_deleted
+    id, book_id, marked_chapter_name, marked_location, marked_time
   </sql>
 
   <delete id="deleteByBookId" parameterType="string">
     delete from bookmark_info where book_id = #{bookId}
   </delete>
+
+  <select id="queryByBookId" parameterType="com.heng.sync.reading.management.api.dto.bookmark.BookmarkQueryDto" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List" />
+    from bookmark_info
+    where book_id = #{queryDto.bookId}
+  </select>
 </mapper>

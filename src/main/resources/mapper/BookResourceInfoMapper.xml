@@ -28,4 +28,8 @@
     from book_resource_info
     where id = #{bookId} limit 1
   </select>
+
+  <select id="queryExistedByBookId" parameterType="string" resultType="java.lang.Integer">
+    select 1 from book_resource_info where id = #{bookId}
+  </select>
 </mapper>

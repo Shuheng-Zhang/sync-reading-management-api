@@ -13,6 +13,13 @@ public interface BookResourceInfoMapper extends BaseMapper<BookResourceInfo> {
     BookResourceInfo queryByBookId(String bookId);
 
     /**
+     * 查询书目是否存在
+     * @param bookId 目标书目ID
+     * @return
+     */
+    Integer queryExistedByBookId(String bookId);
+
+    /**
      * 删除书目资源记录
      * @param bookId 目标书目ID
      * @return
