@@ -4,11 +4,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.math.BigDecimal;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
     * 阅读进度信息
@@ -54,12 +55,6 @@ public class ReadingProgressInfo {
     @TableField(value = "latest_read_time")
     private Date latestReadTime;
 
-    /**
-     * 删除标识, 0-正常; 1-已删除
-     */
-    @TableField(value = "is_deleted")
-    private Integer isDeleted;
-
     public static final String COL_ID = "id";
 
     public static final String COL_BOOK_ID = "book_id";
@@ -72,5 +67,4 @@ public class ReadingProgressInfo {
 
     public static final String COL_LATEST_READ_TIME = "latest_read_time";
 
-    public static final String COL_IS_DELETED = "is_deleted";
 }
