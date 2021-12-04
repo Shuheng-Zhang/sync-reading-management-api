@@ -12,11 +12,23 @@
     <result column="reader_font_size" jdbcType="INTEGER" property="readerFontSize" />
     <result column="reader_font_family" jdbcType="VARCHAR" property="readerFontFamily" />
     <result column="reader_text_space" jdbcType="INTEGER" property="readerTextSpace" />
-    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     id, account_id, app_theme, app_info_sync_mode, reader_theme, reader_font_size, reader_font_family, 
-    reader_text_space, is_deleted
+    reader_text_space
   </sql>
+
+  <select id="queryByAccountId" parameterType="string" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List" />
+    from app_global_config_info
+    where account_id = #{accountId} limit 1
+  </select>
+
+  <delete id="deleteByAccountId" parameterType="string">
+    delete
+    from app_global_config_info
+    where account_id = #{accountId}
+  </delete>
 </mapper>

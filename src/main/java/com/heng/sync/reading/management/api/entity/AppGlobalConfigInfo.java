@@ -64,12 +64,6 @@ public class AppGlobalConfigInfo {
     @TableField(value = "reader_text_space")
     private Integer readerTextSpace;
 
-    /**
-     * 删除标识, 0-正常; 1-已删除
-     */
-    @TableField(value = "is_deleted")
-    private Integer isDeleted;
-
     public static final String COL_ID = "id";
 
     public static final String COL_ACCOUNT_ID = "account_id";
@@ -86,5 +80,4 @@ public class AppGlobalConfigInfo {
 
     public static final String COL_READER_TEXT_SPACE = "reader_text_space";
 
-    public static final String COL_IS_DELETED = "is_deleted";
 }
